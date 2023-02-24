@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.github.oshi/oshi-core
+    implementation group: 'com.github.oshi', name: 'oshi-core', version: '6.1.6'
+    // https://mvnrepository.com/artifact/org.openjdk.jol/jol-core
+    implementation group: 'org.openjdk.jol', name: 'jol-core', version: '0.16'
+// https://mvnrepository.com/artifact/commons-codec/commons-codec
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+// https://mvnrepository.com/artifact/com.google.crypto.tink/tink
+    implementation group: 'com.google.crypto.tink', name: 'tink', version: '1.6.1'
+// https://mvnrepository.com/artifact/com.jfinal/jfinal
+    implementation group: 'com.jfinal', name: 'jfinal', version: '4.9.22'
+// https://mvnrepository.com/artifact/com.alibaba/fastjson
+    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.80'
+// https://mvnrepository.com/artifact/cn.hutool/hutool-all
+    implementation group: 'cn.hutool', name: 'hutool-all', version: '5.7.22'
+// https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+// https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}

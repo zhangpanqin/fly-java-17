@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+group 'com.mflyyou.java'
+version '1.0.0'
+
+allprojects {
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    configurations {
+        annotationProcessor
+        compileOnly.extendsFrom(annotationProcessor)
+    }
+    configurations.configureEach {
+        resolutionStrategy {
+            force 'org.projectlombok:lombok:1.18.26'
+            force 'org.mapstruct:mapstruct:1.5.3.Final'
+            force 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+            force 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+        }
+    }
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        implementation 'org.mapstruct:mapstruct'
+        annotationProcessor 'org.projectlombok:lombok'
+        annotationProcessor "org.projectlombok:lombok-mapstruct-binding"
+        annotationProcessor 'org.mapstruct:mapstruct-processor'
+    }
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+    }
+    tasks.withType(JavaCompile).tap {
+        configureEach {
+            options.compilerArgs = [
+                    '-Amapstruct.suppressGeneratorTimestamp=true'
+            ]
+        }
+    }
+}
+
+wrapper {
+    version = '8.0.1'
+    distributionType = Wrapper.DistributionType.BIN
+}
