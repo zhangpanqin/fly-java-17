@@ -1,3 +1,4 @@
 rootProject.name = 'fly-java-17'
 include 'old-example'
+include 'mapstruct-lombok'
 

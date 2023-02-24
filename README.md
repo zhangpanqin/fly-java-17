@@ -1,5 +1,4 @@
 Java 语法
-### [JVM](./doc/jvm.md)
 ### Thread
 ```java
 //守护线程中的 finally 可能不执行
